@@ -1,7 +1,6 @@
 <?php 
 session_start();
 
-// Verificar si el usuario está autenticado
 if (!isset($_SESSION['usuario'])) {
     header('Location: inicio_sesion.php');  // Redirigir al inicio de sesión si no está autenticado
     exit;
@@ -21,7 +20,7 @@ if (!isset($_SESSION['usuario'])) {
 <body class="d-flex">
     <nav class="sidebar">
         <div class="text-center mb-4">
-            <img src="assets/images/uneti.png" alt="UNETI" class="img-fluid" style="max-width: 120px;">
+            <img src="assets/images/uneti.png" alt="UNETI" class="img-fluid">
         </div>
         <ul class="nav flex-column">
             <li class="nav-item">

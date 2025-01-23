@@ -6,13 +6,14 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="css/inicio_sesion.css">
-    <link rel="shortcut icon" href="images/uneti.png" type="image/x-icon">
+    <title>Iniciar Sesión - UNETI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="shortcut icon" href="assets/images/uneti.png" type="image/x-icon">
 </head>
 <body>
     <div class="image-container">
-        <img src="images/uneti.png" alt="Logo">
+        <img src="assets/images/uneti.png" alt="Logo">
     </div>
 
     <div class="login-container">
