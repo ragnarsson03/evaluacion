@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-// Conexión a la base de datos
+
 $host = 'localhost';
 $dbname = 'evaluacion';
-$user = 'postgres';  // Cambiar por tu usuario
-$password = '6666';  // Cambiar por tu contraseña
+$user = 'postgres'; 
+$password = '6666'; 
 
 try {
     // Conexión a la base de datos

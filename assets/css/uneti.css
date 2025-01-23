@@ -1,0 +1,94 @@
+:root {
+    --primary-color: #ff4c4c;
+    --secondary-color: #003366;
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --white: #ffffff;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Logo y contenedor */
+.logo-container {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    min-height: 100vh;
+    padding: 2rem 0;
+    box-shadow: var(--shadow);
+}
+
+/* Contenido principal */
+.content {
+    flex: 1;
+    padding: 2rem;
+    margin-left: 250px;
+}
+
+/* Formularios */
+.form-container {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+/* Tetris */
+.tetris-container {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.tetris-canvas {
+    border: 3px solid var(--secondary-color);
+    border-radius: 5px;
+    background-color: #000;
+}
+
+/* Controles */
+.controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.control-btn {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 500;
+}

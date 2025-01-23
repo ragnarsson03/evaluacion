@@ -241,4 +241,14 @@ document.addEventListener('DOMContentLoaded', () => {
     playerReset();
     updateScore();
     update();
+    
+    document.getElementById('inicioLink').addEventListener('click', function() {
+        document.getElementById('inicio').style.display = 'block';
+        document.getElementById('tetris').style.display = 'none';
+    });
+
+    document.getElementById('tetrisLink').addEventListener('click', function() {
+        document.getElementById('inicio').style.display = 'none';
+        document.getElementById('tetris').style.display = 'block';
+    });
 });
