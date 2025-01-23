@@ -1,0 +1,26 @@
+/* Estilo general */
+body {
+    background-color: #ededed;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor del logo */
+.image-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.image-container img {
+    width: 120px;
+    height: auto;
+}
+
+/* Contenedor del formulario */
+.login-container {
+    background-color: #fff;
+    margin: 50px auto;
+    width: 40%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
