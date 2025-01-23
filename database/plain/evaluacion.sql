@@ -5,7 +5,7 @@
 -- Dumped from database version 17.0
 -- Dumped by pg_dump version 17.0
 
--- Started on 2025-01-23 09:51:46
+-- Started on 2025-01-23 11:54:01
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -202,7 +202,7 @@ ALTER TABLE ONLY public.usuarios
     ADD CONSTRAINT usuarios_usuario_key UNIQUE (usuario);
 
 
--- Completed on 2025-01-23 09:51:46
+-- Completed on 2025-01-23 11:54:01
 
 --
 -- PostgreSQL database dump complete

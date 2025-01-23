@@ -44,5 +44,28 @@ session_start();
             </form>
         </div>
     </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector("form");
+        form.addEventListener("submit", function(event) {
+            const usuario = document.getElementById("usuario").value;
+            const contrasena = document.getElementById("contrasena").value;
+            const correo = document.getElementById("correo").value;
+
+            if (usuario === "" || contrasena === "" || correo === "") {
+                alert("Todos los campos son obligatorios.");
+                event.preventDefault();
+            } else if (!validateEmail(correo)) {
+                alert("Por favor, ingresa un correo electrónico válido.");
+                event.preventDefault();
+            }
+        });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+    });
+    </script>
 </body>
 </html>

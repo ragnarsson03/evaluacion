@@ -31,8 +31,6 @@ session_start();
                 <?php if (isset($_GET['timeout']) && $_GET['timeout'] === 'true'): ?>
                     <p class="error-message">Tu sesión ha expirado por inactividad. Por favor, vuelve a iniciar sesión.</p>
                 <?php endif; ?>
-
-                <a href="recuperar_contrasena.php">¿Olvidaste tu contraseña?</a>
                 <a href="registro.php">¿No tienes cuenta? Regístrate aquí</a>
             </form>
         </div>
