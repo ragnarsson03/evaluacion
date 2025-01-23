@@ -2,10 +2,10 @@
 session_start();
 
 
-$host = 'localhost';
-$dbname = 'evaluacion';
-$user = 'postgres'; 
-$password = '6666'; 
+$host = 'dpg-cu94id1opnds73aoq83g-a.oregon-postgres.render.com';
+$dbname = 'evaluacion_7jrj';
+$user = 'evaluacion_7jrj_user'; 
+$password = 'Yx6sA5dfWqlxEubahSh8EhPOLyuyoxme'; 
 
 try {
     // Conexión a la base de datos
