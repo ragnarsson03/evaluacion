@@ -24,6 +24,11 @@ if (!isset($_SESSION['usuario'])) {
         </div>
         <ul class="nav flex-column">
             <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-arrow-left"></i> Volver al Inicio
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#" id="inicioLink">
                     <i class="fas fa-home"></i> Inicio
                 </a>

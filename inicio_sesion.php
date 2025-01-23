@@ -33,6 +33,7 @@ session_start();
                     <p class="error-message">Tu sesión ha expirado por inactividad. Por favor, vuelve a iniciar sesión.</p>
                 <?php endif; ?>
                 <a href="registro.php">¿No tienes cuenta? Regístrate aquí</a>
+                <a href="index.html">Volver al Inicio</a>
             </form>
         </div>
     </div>

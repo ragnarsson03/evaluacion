@@ -32,6 +32,7 @@ session_start();
 
                 <button type="submit">Registrarse</button>
                 <a href="inicio_sesion.php">Iniciar Sesión</a>
+                <a href="index.html">Volver al Inicio</a>
 
                 <!-- Mensajes de éxito o error -->
                 <?php if (isset($_SESSION['mensaje'])): ?>
