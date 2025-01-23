@@ -3,15 +3,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const context = canvas.getContext('2d');
     context.scale(20, 20);
 
+    const moveSound = document.getElementById('moveSound');
+    const rotateSound = document.getElementById('rotateSound');
+    const dropSound = document.getElementById('dropSound');
+    const clearSound = document.getElementById('clearSound');
+    const gameOverSound = document.getElementById('gameOverSound');
+    const pointsSound = document.getElementById('pointsSound');
+    const music = document.getElementById('music');
+
+    music.loop = true;
+    music.play();
+
     const colors = [
         null,
-        '#FF0D72',
-        '#0DC2FF',
-        '#0DFF72',
-        '#F538FF',
-        '#FF8E0D',
-        '#FFE138',
-        '#3877FF',
+        '#FF0D72', // T
+        '#0DC2FF', // O
+        '#0DFF72', // L
+        '#F538FF', // J
+        '#FF8E0D', // I
+        '#FFE138', // S
+        '#3877FF', // Z
     ];
 
     const arena = createMatrix(12, 20);
@@ -133,6 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             player.score += rowCount * 10;
             rowCount *= 2;
+            clearSound.play();
+            pointsSound.play();
         }
     }
 
@@ -144,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             playerReset();
             arenaSweep();
             updateScore();
+            dropSound.play();
         }
         dropCounter = 0;
     }
@@ -152,6 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
         player.pos.x += dir;
         if (collide(arena, player)) {
             player.pos.x -= dir;
+        } else {
+            moveSound.play();
         }
     }
 
@@ -168,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
         }
+        rotateSound.play();
     }
 
     function playerReset() {
@@ -179,6 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
             arena.forEach(row => row.fill(0));
             player.score = 0;
             updateScore();
+            gameOverSound.play();
         }
     }
 
@@ -245,10 +263,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('inicioLink').addEventListener('click', function() {
         document.getElementById('inicio').style.display = 'block';
         document.getElementById('tetris').style.display = 'none';
+        music.pause();
     });
 
     document.getElementById('tetrisLink').addEventListener('click', function() {
         document.getElementById('inicio').style.display = 'none';
         document.getElementById('tetris').style.display = 'block';
+        music.play();
     });
 });

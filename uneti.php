@@ -86,7 +86,13 @@ if (!isset($_SESSION['usuario'])) {
             </div>
         </div>
     </main>
-
+    <audio id="moveSound" src="assets/sounds/move.mp3"></audio>
+    <audio id="rotateSound" src="assets/sounds/rotate.mp3"></audio>
+    <audio id="dropSound" src="assets/sounds/drop.mp3"></audio>
+    <audio id="clearSound" src="assets/sounds/clear.mp3"></audio>
+    <audio id="gameOverSound" src="assets/sounds/gameover.mp3"></audio>
+    <audio id="pointsSound" src="assets/sounds/points.mp3"></audio>
+    <audio id="music" src="assets/sounds/music.mp3"></audio>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/tetris.js"></script>
 </body>
