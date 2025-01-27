@@ -1,5 +1,11 @@
 <?php 
 session_start();
+
+// Verificar si el usuario ha sido registrado correctamente
+if (!isset($_SESSION['mensaje'])) {
+    header('Location: registro.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -7,12 +13,13 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Registro Exitoso!</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/validar.css">
     <link rel="shortcut icon" href="images/uneti.png" type="image/x-icon">
 </head>
 <body>
     <div class="image-container">
-        <img src="images/uneti.png" alt="Logo">
+        <img src="assets/images/uneti.png" alt="Logo">
     </div>
 
     <div class="login-container">

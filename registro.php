@@ -1,5 +1,58 @@
 <?php 
 session_start();
+
+$host = 'dpg-cu94id1opnds73aoq83g-a.oregon-postgres.render.com';
+$dbname = 'evaluacion_7jrj';
+$user = 'evaluacion_7jrj_user'; 
+$password = 'Yx6sA5dfWqlxEubahSh8EhPOLyuyoxme'; 
+
+try {
+    // Conexión a la base de datos
+    $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Error al conectar con la base de datos: " . $e->getMessage());
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $usuario = trim($_POST['usuario']);
+    $contrasena = trim($_POST['contrasena']);
+    $correo = trim($_POST['correo']);
+
+    // Validar que los campos no estén vacíos
+    if (empty($usuario) || empty($contrasena) || empty($correo)) {
+        $_SESSION['error'] = "Todos los campos son obligatorios.";
+        header('Location: registro.php');
+        exit;
+    }
+
+    // Validar que el correo sea válido
+    if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['error'] = "Por favor, ingresa un correo electrónico válido.";
+        header('Location: registro.php');
+        exit;
+    }
+
+    // Hash de la contraseña
+    $hashedPassword = password_hash($contrasena, PASSWORD_DEFAULT);
+
+    // Insertar el nuevo usuario en la base de datos
+    try {
+        $stmt = $pdo->prepare("INSERT INTO registros (usuario, contrasena, correo) VALUES (:usuario, :contrasena, :correo)");
+        $stmt->execute(['usuario' => $usuario, 'contrasena' => $hashedPassword, 'correo' => $correo]);
+        $_SESSION['mensaje'] = "¡Te has registrado correctamente!";
+        header('Location: validar.php');
+        exit;
+    } catch (PDOException $e) {
+        if ($e->getCode() == 23505) { // Código de error para violación de restricción única
+            $_SESSION['error'] = "El usuario o correo ya está registrado.";
+        } else {
+            $_SESSION['error'] = "Error al registrar el usuario: " . $e->getMessage();
+        }
+        header('Location: registro.php');
+        exit;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,7 +73,7 @@ session_start();
         <div class="formulario">
             <h2>Registro</h2>
             <!-- Formulario de Registro -->
-            <form action="sesion.php" method="post">
+            <form action="registro.php" method="post">
                 <label for="usuario">Usuario</label>
                 <input type="text" id="usuario" name="usuario" placeholder="Usuario" required>
 
