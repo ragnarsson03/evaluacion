@@ -8,7 +8,7 @@ $user = 'evaluacion_7jrj_user';
 $password = 'Yx6sA5dfWqlxEubahSh8EhPOLyuyoxme'; 
 
 try {
-    // Conexión a la base de datos
+  
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
@@ -19,23 +19,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = trim($_POST['usuario']);
     $contrasena = trim($_POST['contrasena']);
 
-    // Validar que los campos no estén vacíos
+   
     if (empty($usuario) || empty($contrasena)) {
         $_SESSION['error'] = "Por favor, ingresa tu usuario y contraseña.";
         header('Location: inicio_sesion.php');
         exit;
     }
 
-    // Buscar al usuario en la base de datos
+    
     $stmt = $pdo->prepare("SELECT * FROM registros WHERE usuario = :usuario");
     $stmt->execute(['usuario' => $usuario]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($contrasena, $user['contrasena'])) {
-        // Guardar la sesión del usuario
+      
         $_SESSION['usuario'] = $usuario;
 
-        // Redirigir a la página principal de la plataforma
+  
         header('Location: uneti.php');
         exit;
     } else {

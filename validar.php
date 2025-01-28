@@ -1,7 +1,5 @@
 <?php 
 session_start();
-
-// Verificar si el usuario ha sido registrado correctamente
 if (!isset($_SESSION['mensaje'])) {
     header('Location: registro.php');
     exit;

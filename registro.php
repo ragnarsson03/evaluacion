@@ -7,7 +7,7 @@ $user = 'evaluacion_7jrj_user';
 $password = 'Yx6sA5dfWqlxEubahSh8EhPOLyuyoxme'; 
 
 try {
-    // Conexión a la base de datos
+    // Conexión a la base de datos en postgresql
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
@@ -19,24 +19,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $contrasena = trim($_POST['contrasena']);
     $correo = trim($_POST['correo']);
 
-    // Validar que los campos no estén vacíos
+    // Validar para que los campos no estén vacíos
     if (empty($usuario) || empty($contrasena) || empty($correo)) {
         $_SESSION['error'] = "Todos los campos son obligatorios.";
         header('Location: registro.php');
         exit;
     }
 
-    // Validar que el correo sea válido
+    // Validar que el correo sea válido en la base de datos de mi postgresql
     if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['error'] = "Por favor, ingresa un correo electrónico válido.";
         header('Location: registro.php');
         exit;
     }
 
-    // Hash de la contraseña
+    // Hash de la contraseña para más seguridad
     $hashedPassword = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    // Insertar el nuevo usuario en la base de datos
+    // Insertar el nuevo usuario en la base de datos (tabla registros)
     try {
         $stmt = $pdo->prepare("INSERT INTO registros (usuario, contrasena, correo) VALUES (:usuario, :contrasena, :correo)");
         $stmt->execute(['usuario' => $usuario, 'contrasena' => $hashedPassword, 'correo' => $correo]);
@@ -72,7 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="register-container">
         <div class="formulario">
             <h2>Registro</h2>
-            <!-- Formulario de Registro -->
+
+            <!-- Formulario del Registro -->
+
             <form action="registro.php" method="post">
                 <label for="usuario">Usuario</label>
                 <input type="text" id="usuario" name="usuario" placeholder="Usuario" required>
@@ -87,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <a href="inicio_sesion.php">Iniciar Sesión</a>
                 <a href="index.html">Volver al Inicio</a>
 
-                <!-- Mensajes de éxito o error -->
+                <!-- Mensajes de éxito o error escritos en php -->
                 <?php if (isset($_SESSION['mensaje'])): ?>
                     <p class="success-message"><?php echo $_SESSION['mensaje']; ?></p>
                     <?php unset($_SESSION['mensaje']); ?>
