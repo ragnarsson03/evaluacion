@@ -1,11 +1,27 @@
-# Evaluación de Desarrollo de Aplicación 🎮
+INSTRUCCIONES DE EJECUCIÓN:
+
+1. Descomprimir este archivo en C:\xampp\htdocs\
+
+2. Abrir XAMPP Control Panel y activar:
+   - Apache
+   - PostgreSQL
+
+3. Abrir el navegador y acceder a:
+   http://localhost/evaluacion/public
+
+Requisitos mínimos:
+- XAMPP instalado
+- Navegador web actualizado
+
+
+# Sistema de Gestión UNETI 🏛️
 
 ## Requerimientos 📋
-- Aplicación con al menos 3 páginas web programadas en PHP
-- Formulario con 5+ campos validados con JavaScript
-- Diseño responsivo utilizando Bootstrap
-- Uso opcional de jQuery o librerías similares
-- Base de datos opcional
+- Sistema web desarrollado en Laravel/PHP
+- Formularios con validación
+- Diseño responsivo con Bootstrap
+- Base de datos PostgreSQL
+- Autenticación de usuarios
 
 ## Estudiante 👨‍🎓
 Frederick Durán
@@ -14,29 +30,34 @@ Frederick Durán
 Elias Vargas
 
 ## Descripción 📝
-Evaluación de la segunda entrega del curso de desarrollo de juegos, incluyendo un juego de Tetris para evaluar habilidades.
+Sistema de gestión universitaria que incluye múltiples funcionalidades para la administración y servicios estudiantiles.
 
 ## Tecnologías 💻
-- PHP
+- Laravel 10
+- PHP 8
+- PostgreSQL
+- Bootstrap 5
 - JavaScript
-- Bootstrap
 - HTML/CSS
 
 ## Funcionalidades 🚀
-- Navegación entre páginas
-- Validación de formularios
-- Diseño responsivo
-- Juego de Tetris integrado
+- Registro y autenticación de usuarios
+- Formulario de contacto
+- Reserva de hotel
+- Calculadora de préstamos
+- Registro de productos
+- Conversor de divisas (con tasa BCV)
 
 ## Instrucciones de uso 🔧
-1. Clonar el repositorio
-2. Instalar dependencias
-3. Ejecutar la aplicación
+1. Descomprimir en C:\xampp\htdocs\
+2. Iniciar servicios de Apache y PostgreSQL en XAMPP
+3. Acceder a http://localhost/evaluacion/public
 
 ## Notas 📌
-- Leer la documentación antes de ejecutar
-- Consultar README.md en cada carpeta para más detalles
+- Sistema optimizado para navegadores modernos
+- Interfaz responsive para dispositivos móviles
+- Tasa de cambio BCV actualizada
 
-## Contribuciones 🤝
-- Frederick Durán: Desarrollo
-- Elias Vargas: Revisión y corrección
+## Desarrollado por 🤝
+Frederick Durán
+Universidad Nacional Experimental de las Telecomunicaciones e Informática

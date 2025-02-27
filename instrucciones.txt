@@ -1,0 +1,14 @@
+Instrucciones:
+
+- Descomprimir en htdocs (Importante tener así la ruta: C:\xampp\htdocs\evaluacion\evaluacion2\public)
+
+- Crear una base de datos PostgreSQL llamada "evaluacion"
+
+- Modificar DB_PASSWORD en el archivo .env si su contraseña de PostgreSQL es diferente (IMPORTANTE REVISAR EL .ENV)
+
+- Es vital que extraiga las migraciones a su base de datos en PostgreSQL (php artisan migrate en la terminal)
+
+- Acceder a http://localhost/evaluacion/evaluacion2/public/
+
+
+
